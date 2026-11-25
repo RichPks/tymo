@@ -1,0 +1,54 @@
+:root { color-scheme: dark; --accent: #d5fb62; background: #101510; color: #fafbf6; font: 100%/1.5 "DM Sans", sans-serif; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+button, input, select { font: inherit; }
+a { color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+[hidden] { display: none !important; }
+.skip-nav { position: fixed; z-index: 20; top: 0; left: .8rem; transform: translateY(-150%); background: var(--accent); color: #101310; padding: .5rem; }
+.skip-nav:focus { transform: none; }
+.site-rail { width: min(80rem, calc(100% - clamp(2.25rem, 9vw, 9rem))); margin: auto; }
+.site-top { background: #101510; border-bottom: 1px solid #343934; }
+.header-row,.foot-row { display: flex; align-items: center; gap: 2rem; }
+.header-row { min-height: 4.8rem; }
+.wordmark { display: inline-flex; align-items: center; gap: .55rem; color: #f7faf3; text-decoration: none; font: italic 800 2.45rem/.9 "DM Sans", sans-serif; letter-spacing: -.085em; }
+.wordmark i { width: 1.43rem; height: 1.37rem; transform: skew(-22deg); background: repeating-linear-gradient(90deg,var(--accent) 0 5px,transparent 5px 8px); }
+.header-row nav { display: flex; gap: clamp(1rem, 3vw, 2.5rem); margin-left: auto; }
+.header-row nav a { font-size: .95rem; text-decoration: none; color: #d0d3ca; }
+.header-row nav a:hover { color: var(--accent); }
+.header-demo { padding: .64rem 1.2rem; border-radius: 100px; background: var(--accent); color: #161a0f; font-weight: 700; text-decoration: none; font-size: .94rem; }
+.header-demo:hover { background: #e6ff92; }
+.facility-strip { background: var(--accent); color: #192010; display: flex; align-items: center; overflow: hidden; }
+.strip-window { overflow: hidden; padding-block: .85rem; }
+.strip-track,.strip-list { display: flex; width: max-content; align-items: center; }
+.strip-list span { display: inline-flex; align-items: center; white-space: nowrap; font: 700 1.2rem/1.2 "Barlow Condensed",sans-serif; letter-spacing: .06em; text-transform: uppercase; padding-inline: 1.25rem; }
+.strip-list span::before { content: ''; width: 8px; height: 8px; background: currentColor; transform: skew(-18deg); margin-right: 2rem; }
+.strip-toggle { align-self: stretch; flex: 0 0 3.3rem; background: inherit; color: inherit; border: 0; border-right: 1px solid #8ca637; font-size: 1.15rem; }
+.strip-toggle:focus-visible { outline-offset: -4px; outline-color: #253207; }
+@media (prefers-reduced-motion: no-preference) {
+ html { scroll-behavior: smooth; }
+ .strip-track.playable { animation: crawl 38s linear infinite; }
+ .strip-track.paused { animation-play-state: paused; }
+}
+@keyframes crawl { to { transform: translateX(-50%); } }
+.site-bottom { background: #101510; color: #bbc1b4; }
+.foot-row { min-height: 7rem; font-size: .875rem; }
+.foot-row > a:last-child { margin-left: auto; text-underline-offset: .22rem; }
+@media(max-width: 560px) {
+ .header-row { gap: .85rem; min-height: 4rem; }
+ .wordmark { font-size: 1.95rem; gap: .4rem; }
+ .wordmark i { width: 1rem; height: 1rem; }
+ .header-row nav { gap: .8rem; }
+ .header-row nav a { font-size: .875rem; }
+ .header-demo { font-size: .86rem; padding: .54rem .83rem; }
+ .foot-row { flex-wrap: wrap; padding-block: 1.5rem; gap: 1.2rem; justify-content: space-between; }
+ .foot-row > a:last-child { flex-basis: 100%; }
+}
+@media(max-width: 390px) { .header-row nav a:last-child { display: none; } }
+@media(prefers-reduced-motion: reduce) { .strip-window { overflow-x: auto; } .strip-list[aria-hidden] { display: none; } .strip-toggle { display: none; } }
+.site-top,.site-bottom { background:#131e2b; }
+.wordmark i { position:relative; width:1.1rem; height:1.1rem; background:none; transform:none; border:2px solid var(--accent); }
+.wordmark i::after { content:''; position:absolute; width:.95rem; height:.45rem; border-left:2px solid var(--accent); border-bottom:2px solid var(--accent); transform:rotate(-47deg); top:-.02rem; left:.22rem; box-shadow:0 2px #131e2b; }
+.wordmark { font-style:normal; }
+@media(max-width:390px) { .header-row { gap:.6rem; } .header-demo { white-space:nowrap; padding-inline:.65rem; } .site-rail { width:calc(100% - 1.5rem); } }
